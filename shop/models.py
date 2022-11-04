@@ -5,7 +5,7 @@ class Item(models.Model):
     price = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return f'Товар {self.name}. Стоимость {self.price}'
 
 class Purchase(models.Model):
     item = models.ForeignKey(Item, on_delete=models.CASCADE)
@@ -14,6 +14,6 @@ class Purchase(models.Model):
     date_purchase = models.DateField('дата покупки')
 
     def __str__(self):
-        return f'{self.item.name} - {self.item}'
+        return f'{self.item.name}. Покупатель {self.name}'
 
 
